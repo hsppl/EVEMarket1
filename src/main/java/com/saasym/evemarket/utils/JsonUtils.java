@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.MapperFeature;
 import org.apache.commons.lang3.StringUtils;
 import org.thymeleaf.util.MapUtils;
 
@@ -24,6 +26,8 @@ public class JsonUtils {
         mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         mapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
+        mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_VALUES,true);
+        mapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
     }
 
     public static String toJSONString(Object obj) {

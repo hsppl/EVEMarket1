@@ -35,7 +35,7 @@ public class GetEsiUniverseData extends QuartzJobBean {
         try {
             log.info("ThreadID:[{}],Schedule [GetEsiUniverseData] start...",Thread.currentThread().getId());
 
-            JobDetail jobDetail = JobBuilder.newJob(GetEsiUniverseDataTypes.class).withIdentity("GetEsiUniverseDataTypes", "ESIService").usingJobData("pages",50).build();
+            JobDetail jobDetail = JobBuilder.newJob(GetEsiUniverseDataTypes.class).withIdentity("GetEsiUniverseDataTypes", "ESIService").usingJobData("pages",100).build();
             Trigger trigger = TriggerBuilder.newTrigger().withIdentity("GetEsiUniverseDataTypes", "ESIService").build();
             scheduler.scheduleJob(jobDetail, trigger);
 

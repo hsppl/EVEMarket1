@@ -1,5 +1,7 @@
 package com.saasym.evemarket.model.esi;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UniverseTypesDetail implements Serializable {
 
     /**
@@ -23,9 +26,9 @@ public class UniverseTypesDetail implements Serializable {
 
     private Float capacity;
     private String description;
-    //@JsonProperty("dogma_attributes")
+    @JsonProperty("dogma_attributes")
     private List<DogmaAttribute> dogma_attributes;
-    //@JsonProperty("dogma_effects")
+    @JsonProperty("dogma_effects")
     private List<DogmaEffect> dogma_effects;
     private Integer graphic_id;
     private Integer group_id;
@@ -43,6 +46,7 @@ public class UniverseTypesDetail implements Serializable {
 
     @Data
     @NoArgsConstructor
+    @AllArgsConstructor
     public static class DogmaEffect implements Serializable{
         /**
          *
@@ -56,6 +60,7 @@ public class UniverseTypesDetail implements Serializable {
 
     @Data
     @NoArgsConstructor
+    @AllArgsConstructor
     public static class DogmaAttribute implements Serializable{
         /**
          *

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -45,17 +46,17 @@ public class MarketStat implements Serializable{
         private static final long serialVersionUID = 5661807327889007880L;
 
         private ForQuery forQuery;
-        private double  volume;
-        private double  wavg;
-        private double  avg;
-        private double  min;
-        private double  max;
-        private double  variance;
-        private double  stdDev;
-        private double  median;
-        private double  fivePercent;
+        private BigDecimal volume;
+        private BigDecimal  wavg;
+        private BigDecimal  avg;
+        private BigDecimal  min;
+        private BigDecimal  max;
+        private BigDecimal  variance;
+        private BigDecimal  stdDev;
+        private BigDecimal  median;
+        private BigDecimal  fivePercent;
         private boolean highToLow;
-        private double  generated;
+        private BigDecimal  generated;
     }
 
     @Data
@@ -85,16 +86,16 @@ public class MarketStat implements Serializable{
         private static final long serialVersionUID = -2748904806072656225L;
 
         private ForQuery forQuery;
-        private double  volume;
-        private double  wavg;
-        private double  avg;
-        private double  min;
-        private double  max;
-        private double  variance;
-        private double  stdDev;
-        private double  median;
-        private double  fivePercent;
+        private BigDecimal  volume;
+        private BigDecimal  wavg;
+        private BigDecimal  avg;
+        private BigDecimal  min;
+        private BigDecimal  max;
+        private BigDecimal  variance;
+        private BigDecimal  stdDev;
+        private BigDecimal  median;
+        private BigDecimal  fivePercent;
         private boolean highToLow;
-        private double  generated;
+        private BigDecimal  generated;
     }
 }

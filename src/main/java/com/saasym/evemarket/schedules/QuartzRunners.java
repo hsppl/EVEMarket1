@@ -1,5 +1,6 @@
 package com.saasym.evemarket.schedules;
 
+import com.saasym.evemarket.schedules.jobs.GetCorpKBKMData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,9 @@ public class QuartzRunners implements CommandLineRunner {
         //quartzService.addJob(WeChatAccessTokenJob.class,"WeChatAccessTokenJob","ImovkaSys","0 */1 * * * ?",null);
         //quartzService.addJob(WeChatAccessTokenJob.class,"WeChatAccessTokenJob","ImovkaSys",7000,-1,null);
         //quartzService.addJob(DelExpireLoginTokenJob.class,"DelExpireLoginTokenJob","ImovkaSys",60,-1,null);
+
+        //quartzService.addJob(GetCorpKBKMData.class,"GetCorpKBKM","EVE",60,-1,null);
+
         quartzService.startScheduler();
     }
 }

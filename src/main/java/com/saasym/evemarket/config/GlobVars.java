@@ -9,4 +9,7 @@ public final class GlobVars {
     private GlobVars(){}
 
     public static List<SimpleItemInfo> universeTypesDetailList;
+
+    public static int lastKBId;
+    public static int lastKMId;
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Slf4j
@@ -53,18 +54,18 @@ public class MarketController {
             return "没有找到该物品的ID,请刷新缓存";
         }
         List<MarketStat> list = marketService.getItemMarketInfo(100000021,30000142,itemID);
-
+        DecimalFormat decimalFormat = new DecimalFormat(",###.00 ISK");
         StringBuilder stringBuilder = new StringBuilder();
 
         for(MarketStat m : list){
             stringBuilder.append("--------\n");
             stringBuilder.append(itemName).append("\n");
-            stringBuilder.append("收单-最高:").append(m.getBuy().getMax().toString()).append("\n");
-            stringBuilder.append("收单-最低:").append(m.getBuy().getMin().toString()).append("\n");
-            stringBuilder.append("收单-平均:").append(m.getBuy().getAvg().toString()).append("\n");
-            stringBuilder.append("卖单-最高:").append(m.getSell().getMax().toString()).append("\n");
-            stringBuilder.append("卖单-最低:").append(m.getSell().getMin().toString()).append("\n");
-            stringBuilder.append("卖单-平均:").append(m.getSell().getAvg().toString()).append("\n");
+            stringBuilder.append("收单-最高:").append(decimalFormat.format(m.getBuy().getMax())).append("\n");
+            stringBuilder.append("收单-最低:").append(decimalFormat.format(m.getBuy().getMin())).append("\n");
+            stringBuilder.append("收单-平均:").append(decimalFormat.format(m.getBuy().getAvg())).append("\n");
+            stringBuilder.append("卖单-最高:").append(decimalFormat.format(m.getSell().getMax())).append("\n");
+            stringBuilder.append("卖单-最低:").append(decimalFormat.format(m.getSell().getMin())).append("\n");
+            stringBuilder.append("卖单-平均:").append(decimalFormat.format(m.getSell().getAvg())).append("\n");
         }
         return stringBuilder.toString();
         /*return ResponseTemplate.builder()
